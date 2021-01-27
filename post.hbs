@@ -17,7 +17,13 @@
                                 <span
                                     class="post-meta-length">{{reading_time}}</span>
                             </div>
-                            {{> post-media}}
+                            <div class="post-main-image-container">
+                                <img class="post-main-image"
+                                    src="{{img_url feature_image}}"
+                                    alt="{{title}}"
+                                    srcset="{{img_url feature_image size="l"}} 960w"
+                                    >
+                            </figure>
                             <div class="post-wrapper">
                                 <div class="post-content u-text-format">
                                     {{content}}

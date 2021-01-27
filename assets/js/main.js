@@ -96,6 +96,7 @@ function gallery() {
         true
     );
     pswp('.kg-image-card', '.kg-image', '.kg-image', false, false);
+    pswp('.post-main-image-container', '.post-main-image', '.post-main-image', false, false);
 }
 
 function offCanvas() {

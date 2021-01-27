@@ -12,6 +12,11 @@
     width: 100%;
 }
 
+.post-main-image {
+    width: 100%;
+    cursor: pointer;
+}
+
 .post-wrapper {
     flex-grow: 1;
     padding: 20px;
