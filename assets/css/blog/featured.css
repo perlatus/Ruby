@@ -1,9 +1,12 @@
-.post-feed .featured {
+/*
+This css class used to be only for featured posts, but now it's for all posts.
+*/
+.post-feed .post {
     position: relative;
     min-height: 350px;
 }
 
-.post-feed .featured::before {
+.post-feed .post::before {
     content: "";
     position: absolute;
     top: 0;
@@ -13,49 +16,57 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
 }
 
-.post-feed .featured > .post-image {
+.post-feed .post > .post-image {
     z-index: -1;
 }
 
-.post-feed .featured .post-media .post-image {
+.post-feed .post .post-media .post-image {
     display: none;
 }
 
-.post-feed .featured .u-placeholder,
-.post-feed .featured .post-wrapper,
-.post-feed .featured .post-footer {
+.post-feed .post .u-placeholder,
+.post-feed .post .post-wrapper,
+.post-feed .post .post-footer {
     position: relative;
     background-color: transparent;
 }
 
-.post-feed .featured .post-wrapper {
+.post-feed .post .post-wrapper {
     display: flex;
     align-items: flex-end;
 }
 
-.post-feed .featured .post-header {
+.post-feed .post .post-header {
     margin-bottom: 0;
 }
 
-.post-feed .featured .post-title {
+.post-feed .post .post-title {
     font-size: 22px;
     line-height: 1.2;
 }
 
-.post-feed .featured .post-title-link,
-.post-feed .featured .post-excerpt,
-.post-feed .featured .post-link {
+.post-feed .post .post-title-link,
+.post-feed .post .post-excerpt,
+.post-feed .post .post-link {
     color: var(--white-color);
 }
 
-.post-feed .featured .post-excerpt {
+.post-feed .post .post-image-link {
+    position:absolute; 
+    width:100%;
+    height:100%;
+    top:0;
+    left: 0;
+}
+
+.post-feed .post .post-excerpt {
     display: none;
 }
 
-.post-feed .featured .post-footer {
+.post-feed .post .post-footer {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-.post-feed .featured .post-author-image {
+.post-feed .post .post-author-image {
     border-color: transparent;
 }

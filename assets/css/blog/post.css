@@ -33,6 +33,10 @@
     font-weight: 700;
     background-color: var(--primary-color);
     border-radius: 15px;
+
+    /* Brings this closer than the post image link span. */
+    position: relative;
+    z-index: 1;
 }
 
 .post-header {
