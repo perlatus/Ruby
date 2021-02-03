@@ -6,6 +6,16 @@ This css class used to be only for featured posts, but now it's for all posts.
     min-height: 350px;
 }
 
+/*
+I don't actually know why this works, but it does in fact make posts longer on small screens.
+*/
+@media (max-width: 768px) {
+    .post-feed .post {
+        min-height: 475px;
+    }
+}
+
+
 .post-feed .post::before {
     content: "";
     position: absolute;
