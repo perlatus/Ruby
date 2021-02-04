@@ -9,13 +9,13 @@ function handleNsfwGate() {
 
     var nsfwOk = false;
     document.cookie.split(";").find(function (c) {
-        if (c.trim() === "nsfwOk") {
+        if (c.trim() === "nsfwOk=true") {
             nsfwOk = true;
         }
     });
 
     if (nsfwOk) {
-        return
+        return;
     } else {
         showNsfwGate();
     }
@@ -33,7 +33,9 @@ function handleNsfwGate() {
     }
 
     function enter() {
-        document.cookie = "nsfwOk; path=/";
+        var date = new Date();
+        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+        document.cookie = "nsfwOk=true; Path=/; SameSite=strict; Expires=" + date.toUTCString();
         hideNsfwGate();
     }
 
