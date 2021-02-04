@@ -1,3 +1,6 @@
+{{#has tag="nsfw"}}
+    {{> nsfw-gate}}
+{{/has}}
 <article
     class="{{post_class}}{{#unless feature_image}} no-image{{/unless}} u-shadow">
     <img class="post-image lazyload u-object-fit"
