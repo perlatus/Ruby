@@ -8,48 +8,5 @@
         <button type="button" id="nsfw-submit" disabled>Enter</button>
     </form>
 </div>
-<script>
-    function handleNsfwGate() {
-        var nsfwGate = document.getElementById("nsfw-gate");
-        function showNsfwGate() {
-            nsfwGate.style = "";
-        }
-        function hideNsfwGate() {
-            nsfwGate.style = "display:none";
-        }
 
-        for (var c of document.cookie.split(";")) {
-            if (c.trim() === "nsfwOk") {
-                console.log("Found cookie");
-                return; // If cookie set, exit and don't do anything else.
-            }
-        }
-        console.log("No cookie");
-
-        // Otherwise, set up nsfw age gate.
-        showNsfwGate();
-
-        var consent = document.getElementById("nsfw-consent");
-        var legal = document.getElementById("nsfw-legal");
-        var cookie = document.getElementById("nsfw-cookie");
-        var submit = document.getElementById("nsfw-submit");
-
-        function validate() {
-            if (!consent.checked || !legal.checked) {
-                submit.setAttribute("disabled", "");
-            } else {
-                submit.removeAttribute("disabled", "");
-            }
-        }
-
-        function enter() {
-            document.cookie = "nsfwOk; " + document.cookie;
-            hideNsfwGate();
-        }
-
-        validate();
-        consent.onchange = validate;
-        legal.onchange = validate;
-        submit.onclick = enter;
-    }; handleNsfwGate();
-</script>
+<script src="{{asset "built/nsfw-gate.js"}}"></script>
