@@ -1,12 +1,17 @@
 <div id="nsfw-gate" style="display:none">
-    <form id="nsfw-form" action="">
-        <p>This page may contain sexually explicit adult content.</p>
-        <input type="checkbox" id="nsfw-consent">
-        <label for="nsfw-consent">I am willing to view adult content.</label>
-        <input type="checkbox" id="nsfw-legal">
-        <label for="nsfw-legal">I am at least 18 years old.</label>
-        <button type="button" id="nsfw-submit" disabled>Enter</button>
-    </form>
+    <div class="nsfw-form-container">
+        <form id="nsfw-form" action="">
+            <p>This page may contain sexually explicit adult content.</p>
+            <div class="nsfw-checkboxes">
+                <input type="checkbox" id="nsfw-consent">
+                <label for="nsfw-consent">I wanna see it!</label>
+                <br>
+                <input type="checkbox" id="nsfw-legal">
+                <label for="nsfw-legal">I am 18 or older.</label>
+            </div>
+            <button type="button" id="nsfw-submit" class="button" disabled>Enter</button>
+        </form>
+    </div>
 </div>
 
 <script src="{{asset "built/nsfw-gate.js"}}"></script>

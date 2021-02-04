@@ -15,3 +15,11 @@
     box-shadow: var(--shadow-base);
     cursor: pointer;
 }
+
+.button:disabled {
+    background-color: gray;
+}
+
+.button:disabled:hover {
+    cursor: not-allowed;
+}
