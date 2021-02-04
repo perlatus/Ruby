@@ -33,7 +33,7 @@ function handleNsfwGate() {
     }
 
     function enter() {
-        document.cookie = "nsfwOk; " + document.cookie;
+        document.cookie = "nsfwOk; path=/";
         hideNsfwGate();
     }
 
