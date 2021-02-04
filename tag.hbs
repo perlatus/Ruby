@@ -7,7 +7,7 @@
                 <span class="tag-name">{{name}}</span>
             </a>
         {{/tag}}
-        {{#get "tags" limit="all" filter="id:-{{tag.id}}"}}
+        {{#get "tags" limit="all" filter="id:-{{tag.id}}+slug:-nsfw"}}
             {{#foreach tags}}
                 <a class="tag" href="{{url}}">
                     <span class="tag-name">{{name}}</span>

@@ -1,0 +1,11 @@
+#nsfw-gate {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-color);
+    z-index: 100;
+}
+
+#nsfw-form {
+    margin: auto;
+}
