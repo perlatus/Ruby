@@ -5,6 +5,7 @@ window.lazySizesConfig.loadHidden = false;
 
 $(function () {
     'use strict';
+    nsfwGate();
     author();
     stickySidebar();
     pagination();
@@ -12,6 +13,51 @@ $(function () {
     gallery();
     offCanvas();
 });
+
+function nsfwGate() {
+    'use strict';
+
+    if ($(".tag-nsfw").length <= 0) {
+        return; // There are no nsfw elements on this page
+    }
+
+    var nsfwOk = false;
+    document.cookie.split(";").find(function (c) {
+        if (c.trim() === "nsfwOk=true") {
+            nsfwOk = true;
+        }
+    });
+
+    if (nsfwOk) {
+        return;
+    } else {
+        $("#nsfw-gate").show();
+    }
+
+    var consent = $("#nsfw-consent");
+    var legal = $("#nsfw-legal");
+    var submit = $("#nsfw-submit");
+
+    function validate() {
+        if (!consent.prop("checked") || !legal.prop("checked")) {
+            submit.attr("disabled", "");
+        } else {
+            submit.removeAttr("disabled");
+        }
+    }
+
+    validate();
+    consent.change(validate);
+    legal.change(validate);
+
+    submit.click(function () {
+        console.log("hit submit");
+        var date = new Date();
+        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+        document.cookie = "nsfwOk=true; Path=/; SameSite=strict; Expires=" + date.toUTCString();
+        $("#nsfw-gate").hide();
+    });
+}
 
 function author() {
     'use strict';

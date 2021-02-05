@@ -7,10 +7,6 @@
             <div class="content-area">
                 <main class="site-main">
                     {{#post}}
-                        {{#has tag="nsfw"}}
-                        {{> nsfw-gate}}
-                        {{/has}}
-
                         <article
                             class="{{post_class}}{{#unless feature_image}} no-image{{/unless}} single u-shadow">
                             {{> post-header tag="h1" hide_link=true}}

@@ -62,17 +62,6 @@ function js(done) {
     ], handleError(done));
 }
 
-function jsIndividual(done) {
-    pump([
-        src([
-            'assets/js/nsfw-gate.js'
-        ], {sourcemaps: true}),
-        uglify(),
-        dest('assets/built/', {sourcemaps: '.'}),
-        livereload()
-    ], handleError(done));
-}
-
 function lint(done) {
     pump([
         src(['assets/css/**/*.css', '!assets/css/vendor/*']),
@@ -104,8 +93,7 @@ function zipper(done) {
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs', 'members/**/*.hbs'], hbs);
 const cssWatcher = () => watch('assets/css/**/*.css', css);
 const jsWatcher = () => watch(['assets/js/main.js', 'assets/js/lib/*.js'], js);
-const jsIndividualWatcher = () => watch(['assets/js/*.js', '!assets/js/main.js'], jsIndividual);
-const watcher = parallel(hbsWatcher, cssWatcher, jsWatcher, jsIndividualWatcher);
+const watcher = parallel(hbsWatcher, cssWatcher, jsWatcher);
 const build = series(css, js);
 
 exports.build = build;
